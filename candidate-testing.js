@@ -22,24 +22,39 @@ function askForName() {
   candidateName = input.question("Hello, What is your name? ");
 }
 
+let numQuestions = 0;
+
 function askQuestion() {
   // TODO 1.2b: Ask candidate the question and assign the response as candidateAnswer //
-candidateAnswer = input.question("Who was the first American woman in space? ");
-
+// candidateAnswer = input.question("Who was the first American woman in space? ");
+  for (let i = 0; i < questions.length; i++) {
+    candidateAnswers.push(input.question(questions[i]));
+    numQuestions += 1;
+  }
 }
+
+let numOfCorrectAnswers = 0;
 
 function gradeQuiz(candidateAnswers) {
 
   // TODO 1.2c: Let the candidate know if they have answered the question correctly or incorrectly // 
-if (candidateAnswer == correctAnswer){
-  console.log("correct");
-} else{
-  console.log("incorrect");
-}
+// if (candidateAnswer == correctAnswer){
+//   console.log("correct");
+// } else{
+//   console.log("incorrect");
+// }
+  for (let i = 0; i < candidateAnswers.length; i++){
+    if (candidateAnswers[i].toLowerCase() === correctAnswers[i].toLowerCase()){
+      numOfCorrectAnswers += 1;
+      console.log(`The correct awnser is ${correctAnswers[i]}\n Your answer is ${candidateAnswers[i]}`);
+    } else {
+      console.log(`The correct awnser is ${correctAnswers[i]}\n Your answer is ${candidateAnswers[i]}`);
+    }
+  }
 
-
-  let grade;  //TODO 3.2 use this variable to calculate the candidates score.
-
+  let grade = 0;  
+  //TODO 3.2 use this variable to calculate the candidates score.
+  grade = (numOfCorrectAnswers / numQuestions) * 100 
 
   return grade;
 }
@@ -52,7 +67,7 @@ function runProgram() {
   gradeQuiz(this.candidateAnswers);
 }
 
-runProgram();
+// runProgram();
 
 // ----------- Don't write any code or change any code below this line ---------- //
 module.exports = {
