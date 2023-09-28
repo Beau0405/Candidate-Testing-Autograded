@@ -29,14 +29,14 @@ function askQuestion() {
 // candidateAnswer = input.question("Who was the first American woman in space? ");
   for (let i = 0; i < questions.length; i++) {
     candidateAnswers.push(input.question(questions[i]));
-    numQuestions += 1;
+    
   }
 }
 
-let numOfCorrectAnswers = 0;
+
 
 function gradeQuiz(candidateAnswers) {
-
+  let numOfCorrectAnswers = 0;
   // TODO 1.2c: Let the candidate know if they have answered the question correctly or incorrectly // 
 // if (candidateAnswer == correctAnswer){
 //   console.log("correct");
@@ -47,6 +47,7 @@ function gradeQuiz(candidateAnswers) {
     if (candidateAnswers[i].toLowerCase() === correctAnswers[i].toLowerCase()){
       numOfCorrectAnswers += 1;
       console.log(`The correct answer is ${correctAnswers[i]}\n Your answer is ${candidateAnswers[i]}`);
+      // console.log(numOfCorrectAnswers);
     } else {
       console.log(`The correct answer is ${correctAnswers[i]}\n Your answer is ${candidateAnswers[i]}`);
     }
@@ -54,8 +55,7 @@ function gradeQuiz(candidateAnswers) {
 
   let grade = 0;  
   //TODO 3.2 use this variable to calculate the candidates score.
-  grade = (numOfCorrectAnswers / numQuestions) * 100; 
-console.log(your (grade);
+  grade = ( numOfCorrectAnswers / questions.length) * 100; 
 if (grade >= 80){
   console.log(`Passed with grade of ${grade}`);
 }else{
