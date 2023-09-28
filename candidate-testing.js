@@ -46,17 +46,23 @@ function gradeQuiz(candidateAnswers) {
   for (let i = 0; i < candidateAnswers.length; i++){
     if (candidateAnswers[i].toLowerCase() === correctAnswers[i].toLowerCase()){
       numOfCorrectAnswers += 1;
-      console.log(`The correct awnser is ${correctAnswers[i]}\n Your answer is ${candidateAnswers[i]}`);
+      console.log(`The correct answer is ${correctAnswers[i]}\n Your answer is ${candidateAnswers[i]}`);
     } else {
-      console.log(`The correct awnser is ${correctAnswers[i]}\n Your answer is ${candidateAnswers[i]}`);
+      console.log(`The correct answer is ${correctAnswers[i]}\n Your answer is ${candidateAnswers[i]}`);
     }
   }
 
   let grade = 0;  
   //TODO 3.2 use this variable to calculate the candidates score.
-  grade = (numOfCorrectAnswers / numQuestions) * 100 
-
+  grade = (numOfCorrectAnswers / numQuestions) * 100; 
+console.log(your (grade);
+if (grade >= 80){
+  console.log(`Passed with grade of ${grade}`);
+}else{
+  console.log(`failed with a grade of ${grade}`);
+}
   return grade;
+
 }
 
 function runProgram() {
@@ -67,7 +73,6 @@ function runProgram() {
   gradeQuiz(this.candidateAnswers);
 }
 
-// runProgram();
 
 // ----------- Don't write any code or change any code below this line ---------- //
 module.exports = {
